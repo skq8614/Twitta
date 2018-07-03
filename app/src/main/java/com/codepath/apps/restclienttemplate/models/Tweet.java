@@ -7,6 +7,7 @@ public class Tweet {
 
     //list out the attributes
     public String body;
+    public String time;
     public long uid; //database ID for the tweet
     public String createdAt;
     public User user;
@@ -20,6 +21,7 @@ public class Tweet {
         tweet.uid = jsonObject.getLong("id");
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
+        tweet.time = TimeFormatter.getTimeDifference(tweet.createdAt);
         return tweet;
     }
 }
