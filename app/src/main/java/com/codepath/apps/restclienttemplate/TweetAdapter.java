@@ -11,9 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.util.List;
+
+import static com.codepath.apps.restclienttemplate.models.GlideOptions.bitmapTransform;
 
 public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
 
@@ -41,7 +44,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
     //bind the values based on the position of the element
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         //get the data according to position
         Tweet tweet = mTweets.get(position);
 
@@ -50,7 +53,12 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         holder.tvBody.setText(tweet.body);
         //holder.tvTime.setText(tweet.time);
 
-        Glide.with(context).load(tweet.user.profileImageUrl).into(holder.ivProfileImage);
+        //Glide.with(context).load(tweet.user.profileImageUrl).into(holder.ivProfileImage);
+
+        Glide.with(context).load(tweet.user.profileImageUrl)
+                .apply(bitmapTransform(new CircleCrop()))
+                .into(holder.ivProfileImage);
+
     }
 
     @Override
