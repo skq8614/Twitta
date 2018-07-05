@@ -4,10 +4,9 @@
 
     <item
         android:id="@+id/miCompose"
-        android:icon="@drawable/ic_launcher"
-        app:showAsAction="ifRoom|withText"
+        android:icon="@drawable/ic_vector_compose"
         android:onClick="onCompose"
-        android:title="Compose">
-    </item>
+        android:title="Compose"
+        app:showAsAction="ifRoom|withText"></item>
 
 </menu>

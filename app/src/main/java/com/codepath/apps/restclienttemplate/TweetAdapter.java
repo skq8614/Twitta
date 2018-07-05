@@ -51,7 +51,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         //populate the views according to this data
         holder.tvUsername.setText(tweet.user.name);
         holder.tvBody.setText(tweet.body);
-        //holder.tvTime.setText(tweet.time);
+        holder.tvTime.setText(tweet.time);
+        holder.tvUser.setText(tweet.user.screenName);
 
         //Glide.with(context).load(tweet.user.profileImageUrl).into(holder.ivProfileImage);
 
@@ -60,6 +61,19 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
                 .into(holder.ivProfileImage);
 
     }
+
+    /*
+    public void clear() {
+        mTweets.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void addAll(List<Tweet> list) {
+        mTweets.addAll(list);
+        notifyDataSetChanged();
+    }
+    */
 
     @Override
     public int getItemCount() {
@@ -74,6 +88,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         public TextView tvBody;
         public TextView tvTime;
         public EditText tvText;
+        public TextView tvUser;
+        public Tweet tweet;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -84,6 +100,10 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
             tvUsername = itemView.findViewById(R.id.tvUserName);
             tvBody = itemView.findViewById(R.id.tvBody);
             tvText = itemView.findViewById(R.id.tvText);
+            tvTime = itemView.findViewById(R.id.tvTime);
+            tvUser = itemView.findViewById(R.id.tvUser);
+
+
             //String strValue = simpleEditText.getText().toString();
         }
     }
