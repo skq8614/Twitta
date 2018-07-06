@@ -26,6 +26,7 @@
         android:background="#16a8de"
         android:onClick="onTweet"
         android:text="TWEET"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="41dp" />
