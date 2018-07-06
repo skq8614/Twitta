@@ -62,7 +62,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
 
     }
 
-    /*
     public void clear() {
         mTweets.clear();
         notifyDataSetChanged();
@@ -73,7 +72,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         mTweets.addAll(list);
         notifyDataSetChanged();
     }
-    */
+
 
     @Override
     public int getItemCount() {

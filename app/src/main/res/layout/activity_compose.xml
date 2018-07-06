@@ -9,10 +9,9 @@
     <EditText
         android:id="@+id/tvText"
         android:layout_width="380dp"
-        android:layout_height="467dp"
+        android:layout_height="212dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="44dp"
         android:hint="What's happening?"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"></EditText>
@@ -21,25 +20,15 @@
         android:id="@+id/btnTweet"
         android:layout_width="104dp"
         android:layout_height="56dp"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="37dp"
-        android:layout_marginEnd="25dp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="20dp"
         android:background="#16a8de"
         android:onClick="onTweet"
         android:text="TWEET"
         android:textSize="18sp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="41dp" />
-
-    <TextView
-        android:id="@+id/tvUserName"
-        android:layout_width="182dp"
-        android:layout_height="32dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="32dp"
-        android:text="usernamehere" />
 
 
 </RelativeLayout>
