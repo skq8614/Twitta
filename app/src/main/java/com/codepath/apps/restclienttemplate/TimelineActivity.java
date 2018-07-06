@@ -53,9 +53,7 @@ public class TimelineActivity extends AppCompatActivity {
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
-
-
-    client = TwitterApp.getRestClient(this);
+        client = TwitterApp.getRestClient(this);
 
         //find the RecyclerView
         rvTweets = findViewById(R.id.rvTweet);

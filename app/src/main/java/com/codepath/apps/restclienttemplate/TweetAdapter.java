@@ -1,18 +1,23 @@
 package com.codepath.apps.restclienttemplate;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.codepath.apps.restclienttemplate.models.Tweet;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -46,7 +51,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         //get the data according to position
-        Tweet tweet = mTweets.get(position);
+        final Tweet tweet = mTweets.get(position);
 
         //populate the views according to this data
         holder.tvUsername.setText(tweet.user.name);
@@ -59,6 +64,18 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         Glide.with(context).load(tweet.user.profileImageUrl)
                 .apply(bitmapTransform(new CircleCrop()))
                 .into(holder.ivProfileImage);
+
+        final int REQUEST_CODE = 20;
+        ImageButton btnReply = holder.btnReply;
+        btnReply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, ReplyActivity.class);
+                i.putExtra("tweet", Parcels.wrap(tweet)); // pass arbitrary data to launched activity
+                //i.putExtra("user", Parcels.wrap());
+                ((Activity)context).startActivityForResult(i, REQUEST_CODE);
+            }
+        });
 
     }
 
@@ -80,7 +97,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
     }
 
     //create the ViewHolder class
-
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public ImageView ivProfileImage;
         public TextView tvUsername;
@@ -88,22 +104,20 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         public TextView tvTime;
         public EditText tvText;
         public TextView tvUser;
-        public Tweet tweet;
+        public ImageButton btnReply;
 
         public ViewHolder(View itemView){
             super(itemView);
 
             //perform findViewById lookups
-
             ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
             tvUsername = itemView.findViewById(R.id.tvUserName);
             tvBody = itemView.findViewById(R.id.tvBody);
             tvText = itemView.findViewById(R.id.tvText);
             tvTime = itemView.findViewById(R.id.tvTime);
             tvUser = itemView.findViewById(R.id.tvUser);
+            btnReply = itemView.findViewById(R.id.btnReply);
 
-
-            //String strValue = simpleEditText.getText().toString();
         }
     }
 }
