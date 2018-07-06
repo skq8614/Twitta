@@ -20,13 +20,23 @@ public class ReplyActivity extends AppCompatActivity {
 
     TwitterClient client;
     View view;
+    EditText tvText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reply);
         client = TwitterApp.getRestClient(this);
-        setTitle("Twitta");
+        tvText = findViewById(R.id.tvText);
+        setTitle("Twitta - Reply to this tweet");
+        setText();
+    }
+
+    public void setText(){
+        String username = Parcels.unwrap(getIntent().getParcelableExtra("username"));
+        String intro = "@" + username;
+        tvText.setText(intro);
+        tvText.setSelection(intro.length());
     }
 
     public void onTweet(View view){
