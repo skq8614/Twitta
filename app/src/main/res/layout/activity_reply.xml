@@ -21,6 +21,8 @@
             android:textAlignment="viewStart"
             app:layout_constraintEnd_toEndOf="parent" />
 
+    </android.support.design.widget.TextInputLayout>
+
         <Button
             android:id="@+id/btnTweet"
             android:layout_width="104dp"
@@ -36,6 +38,6 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="41dp" />
 
-    </android.support.design.widget.TextInputLayout>
+
 
 </RelativeLayout>
