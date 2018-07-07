@@ -26,7 +26,7 @@ public class ComposeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
         client = TwitterApp.getRestClient(this);
-        setTitle("Twitta - Compose a new tweet");
+        setTitle("Twitta - Compose a New Tweet");
 
     }
 

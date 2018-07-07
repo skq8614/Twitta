@@ -8,10 +8,11 @@
 
     <ImageView
         android:id="@+id/ivProfileImage"
-        android:layout_width="86dp"
-        android:layout_height="91dp"
-        android:layout_alignStart="@+id/tvTime"
+        android:layout_width="74dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/tvUserName"
+        android:layout_marginStart="20dp"
         app:srcCompat="@android:color/black"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="16dp" />
@@ -21,8 +22,9 @@
         android:layout_width="172dp"
         android:layout_height="30dp"
         android:layout_above="@+id/tvUser"
-        android:layout_alignStart="@+id/btnRetweet"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="-40dp"
+        android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="133dp"
@@ -33,7 +35,7 @@
         android:layout_width="170dp"
         android:layout_height="30dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/btnRetweet"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:textSize="18sp"
         tools:layout_editor_absoluteX="133dp"
@@ -41,11 +43,10 @@
 
     <TextView
         android:id="@+id/tvTime"
-        android:layout_width="145dp"
+        android:layout_width="244dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/btnReply"
-        android:layout_marginBottom="226dp"
+        android:layout_alignStart="@+id/tvBody"
+        android:layout_below="@+id/tvBody"
         android:textSize="18sp"
         tools:layout_editor_absoluteX="321dp"
         tools:layout_editor_absoluteY="16dp" />
@@ -53,37 +54,46 @@
     <TextView
         android:id="@+id/tvBody"
         android:layout_width="346dp"
-        android:layout_height="137dp"
+        android:layout_height="175dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/ivProfileImage"
         android:layout_marginStart="29dp"
         android:layout_marginTop="21dp"
         android:textAlignment="center"
         android:textColor="@android:color/black"
-        android:textSize="24sp"
+        android:textSize="22sp"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="131dp" />
 
     <ImageButton
-        android:id="@+id/btnReply"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnRetweet"
+        android:layout_width="63dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/btnRetweet"
-        android:layout_marginStart="21dp"
-        app:srcCompat="@drawable/vector_compose_dm_shortcut"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="289dp" />
-
-    <ImageButton
-        android:id="@+id/btnRetweet"
-        android:layout_width="78dp"
-        android:layout_height="69dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="140dp"
-        android:layout_marginStart="115dp"
+        android:layout_below="@+id/tvTime"
+        android:layout_marginStart="54dp"
+        android:background="@android:color/white"
         app:srcCompat="@drawable/ic_vector_retweet_stroke"
         tools:layout_editor_absoluteX="97dp"
         tools:layout_editor_absoluteY="289dp" />
+
+    <ImageButton
+        android:id="@+id/btnFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTime"
+        android:layout_toEndOf="@+id/btnRetweet"
+        android:background="@android:color/white"
+        app:srcCompat="@drawable/ic_vector_heart_stroke" />
+
+    <ImageButton
+        android:id="@+id/btnReply"
+        android:layout_width="35dp"
+        android:layout_height="27dp"
+        android:layout_alignStart="@+id/ivProfileImage"
+        android:layout_below="@+id/tvTime"
+        android:background="@android:color/white"
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/reply" />
+
 </RelativeLayout>

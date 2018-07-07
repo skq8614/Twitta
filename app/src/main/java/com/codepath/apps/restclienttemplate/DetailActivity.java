@@ -30,6 +30,7 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        setTitle("Twitta");
 
         ivProfileImage = findViewById(R.id.ivProfileImage);
         tvUsername = findViewById(R.id.tvUserName);
@@ -42,7 +43,7 @@ public class DetailActivity extends AppCompatActivity {
         tvUsername.setText(tweet.user.name);
         tvBody.setText(tweet.body);
         tvTime.setText(tweet.createdAt);
-        tvUser.setText(tweet.user.screenName);
+        tvUser.setText("@" + tweet.user.screenName);
 
         Glide.with(this).load(tweet.user.profileImageUrl)
                 .apply(bitmapTransform(new CircleCrop()))

@@ -30,6 +30,7 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 			};
 		};
 		task.execute(sampleModel);
+		setTitle("Twitta");
 	}
 
 
